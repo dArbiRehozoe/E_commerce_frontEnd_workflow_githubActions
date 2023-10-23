@@ -1,0 +1,126 @@
+.historique{
+ 
+    width: 100%;
+    list-style-type: none;
+
+
+}
+
+.date{
+  /* background-color: white; */
+  height: 100%;
+}
+.titre{
+    margin-top: 1%;
+ 
+    margin-bottom: 2%;
+}
+
+.blurCompte{
+    position: absolute;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+   width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(252,254,253,255);
+ float: right;
+  
+
+}
+
+
+  .row{
+    width: 100%;
+
+  }
+
+  .columnrow {
+    float: left;
+   
+    width: 50%;
+    padding: 10px;
+    height: 500px; /* Should be removed. Only for demonstration */
+  }
+.columnn {
+    float: left;
+   
+    width: 50%;
+    padding: 10px;
+    height: 380px; /* Should be removed. Only for demonstration */
+  }
+  .divcolumnn{
+    height:400px
+  }
+  
+.liste{
+    color: rgb(141, 141, 141);
+    margin-top: 10px;
+}
+.page{
+ margin-bottom: 6%; 
+}
+.panierprix{
+  margin-left: 18%;
+}
+@media only screen and (max-width: 1200px) {
+  .page{
+    margin-bottom: 10%; 
+   }
+   .panierprix{
+    margin-left: 3%;
+  }
+  
+    }
+@media only screen and (max-width: 1000px) {
+ 
+  .date{
+    position: fixed;
+    width: 100%;
+   height: 200px;
+   top: 0;
+   }
+   .historique{
+    width: 90%;
+    margin-top:75%;
+
+
+}
+    }
+@media only screen and (max-width: 600px) {
+  .date{
+   top: 0;
+   }
+    .historique{
+        margin-left:7%;
+        width: 90%;
+  
+        margin-top: 110%;
+
+    /* color: rgba(220, 220, 220, 0.418); */
+    }
+    .panierprix{
+      margin-left: 0%;
+    }
+    .page{
+      margin-bottom: 20%; 
+     }
+    
+    .columnn {
+   
+        width: 100%;
+        height: 200px;
+      }
+    .columnrow {
+   
+        width: 100%;
+        height: 200px;
+      }
+
+      .divcolumnn{
+        height:450px;
+        background-color: red;
+      }
+    }
+

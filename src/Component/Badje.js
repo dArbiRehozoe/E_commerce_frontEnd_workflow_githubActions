@@ -1,0 +1,41 @@
+import * as React from 'react';
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useProductsContext } from './MainContext';
+import { Link } from 'react-router-dom';
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: '0 4px',
+  },
+}));
+
+export default function CustomizedBadges() {
+    const { Panier} = useProductsContext();
+  return (
+  
+<Link
+         
+            to='/Panier'
+         
+          >
+           
+     
+       
+    <div style={{zIndex:'100',position:'fixed',bottom:'5%',right:'4%',backgroundColor:'rgba(252,254,253,255)',width:'70px',height:'65px',padding:'10px',
+    borderRadius:'50%'
+    }}>
+        
+    <IconButton aria-label="cart">
+      <StyledBadge badgeContent={Panier.length} color="secondary">
+        <ShoppingCartIcon/>
+      </StyledBadge>
+    </IconButton>
+    </div>
+    </Link>
+  );
+}

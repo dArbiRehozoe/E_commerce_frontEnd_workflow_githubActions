@@ -1,0 +1,77 @@
+/* Container for flexboxes */
+.rowww {
+    display: -webkit-flex;
+
+    display: flex;
+
+    width: 80%;
+ 
+  }
+  
+.dash {
+    display: -webkit-flex;
+    margin-top: 1%;
+    display: flex;
+   margin-bottom: 40px;
+    width: 80%;
+   
+  }
+  .columndash {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  
+    padding: 10px;
+    height: 350px; 
+    /* Should be removed. Only for demonstration */
+   
+  }
+  /* Create three equal columns that sits next to each other */
+  .column {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 10px;
+    height: 300px; 
+    /* Should be removed. Only for demonstration */
+    overflow: auto;
+  }
+.tr{
+  width:80%;
+}  
+@media only screen and (max-width: 1000px) {
+    @media (max-width: 1000px) {
+        .rowww {
+          -webkit-flex-direction: column;
+          flex-direction: column;
+          width: 97%;
+        }
+        .tr{
+          width:80%;
+        }  
+        .dash {
+          -webkit-flex-direction: column;
+          flex-direction: column;
+          width:80%;
+          /* margin-right: 10%; */
+        }
+      }
+    }
+@media only screen and (max-width: 600px) {
+    @media (max-width: 600px) {
+        .rowww {
+          -webkit-flex-direction: column;
+          flex-direction: column;
+          width: 97%;
+        }
+        .tr{
+          width:90%;
+        }  
+        .dash {
+          -webkit-flex-direction: column;
+          flex-direction: column;
+          width:80%;
+        }
+      }
+    }
+

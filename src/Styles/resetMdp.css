@@ -1,0 +1,57 @@
+.divform{
+    width: 40%;
+    margin: auto;
+    margin-top: 10%;
+    border: 1px solid rgba(252,254,253,255);
+    border-radius: 1%;
+    background-color: rgba(252,254,253,255);
+}
+.img{
+    position: absolute;
+    margin: 0;
+    width: 50px;
+    height: 50px;
+}
+.blurr{
+    position: absolute;
+
+background-image: url('../photos/Abstract Fluid Blue Dark Gradient for Glassmorphism Background Banner Ultra High Resolution.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+
+}
+
+.formm {
+    margin: auto;
+    margin-top: 1%;
+    padding-left: 10%;
+
+    /* background-color: rgba(252,254,253,255); Utilisation de rgba pour ajouter de la transparence */
+    width: 70%;
+    height: 60%;
+    border: 1px solid rgba(252,254,253,255);
+    border-radius: 4%;
+    background-color: rgba(252,254,253,255);
+    position: relative; /* Important pour positionner correctement le pseudo-élément */
+}
+
+@media only screen and (max-width: 1200px) {
+    .divform{
+        width: 70%;
+     
+    }
+    }
+@media only screen and (max-width: 600px) {
+    .divform{
+        width: 90%;
+     
+    }
+    }
