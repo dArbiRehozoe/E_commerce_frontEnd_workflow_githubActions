@@ -31,7 +31,7 @@ jobs:
         run: |
           python ./changetag.py
               - name: Deploy to Local Machine
-
+      - name: Deploy to Local Machine
         run: |
           ssh darbi@darbi-aspiree5572g "kubectl apply -f /home/darbi/Vidéos/stage/kubernetis/front.yml"
         env:
