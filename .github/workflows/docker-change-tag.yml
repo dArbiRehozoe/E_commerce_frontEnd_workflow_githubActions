@@ -21,16 +21,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install requests
-
-      - name: Execute the Python script
-        env:    
-          TAG_TO_REPLACE: ${{ secrets.TAG_TO_REPLACE }} 
-          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-        run: |
-          python ./changetag.py
-              - name: Deploy to Local Machine
       - name: Deploy to Local Machine
         run: |
           ssh darbi@darbi-aspiree5572g "kubectl apply -f /home/darbi/Vidéos/stage/kubernetis/front.yml"
