@@ -23,7 +23,7 @@ jobs:
           pip install requests
       - name: Deploy to Local Machine
         run: |
-          ssh darbi@154.126.48.239 "kubectl apply -f /home/darbi/Vidéos/stage/kubernetis/front.yml"
+          ssh -p 2222 darbi@154.126.48.239 "kubectl apply -f /home/darbi/Vidéos/stage/kubernetis/front.yml"
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         shell: bash
