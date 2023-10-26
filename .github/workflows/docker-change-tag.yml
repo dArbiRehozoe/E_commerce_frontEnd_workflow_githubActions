@@ -15,4 +15,4 @@ jobs:
         port: 22
         script: |
           mkdir blob
-          echo "hehe"
+          echo "hehehe"
