@@ -20,5 +20,7 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 # Copy static assets from builder stage
 COPY --from=builder /app/build .
+# Copy custom Nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Containers run nginx with global directives and daemon off
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
