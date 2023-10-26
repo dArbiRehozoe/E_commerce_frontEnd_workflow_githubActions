@@ -1,18 +1,53 @@
-name: remote ssh command
-on: [push]
-jobs:
+name: Update Docker Tag
 
-  build:
-    name: Build
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-rename-tag:
     runs-on: ubuntu-latest
+
     steps:
-    - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@master
-      with:
-        host: 192.168.43.223
-        username: darbi
-        key: ${{ secrets.OMG_SECRET }}
-        port: 22
-        script: |
-          mkdir blob
-          echo "hehehe"
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9.17
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Read current version
+        id: read-version
+        run: echo ::set-output name=version::$(cat version.txt)
+
+      - name: Increment version for pull request
+        run: echo $(( $(cat version.txt) + 0.1 )) > version.txt
+
+      - name: Login to Docker Hub
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+        
+      - name: Pull and retag the image latest
+        run: |
+          docker pull stage_front:latest
+          docker tag stage_front:latest stage_front:${{ steps.read-version.outputs.version }}
+          docker push stage_front:${{ steps.read-version.outputs.version }}
+          
+      - name: Execute the Python script
+        env:    
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+        run: |
+          python ./changetag.py
+          
+      - name: Build and tag new Docker image to latest
+        run: docker build -t stage_front:latest .
+
+      - name: Push Docker image
+        run: docker push stage_front:latest

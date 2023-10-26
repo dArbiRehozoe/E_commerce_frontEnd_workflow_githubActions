@@ -12,6 +12,7 @@ export function useProductsContext() {
 }
 export function ProductsProvider({ children }) {
   const apikey=process.env.REACT_APP_API_URL;
+  console.log(apikey)
   const [Products, setProducts] = useState([]);
   const [ProductA, setProductA] = useState([]);
   const navigate = useNavigate();
