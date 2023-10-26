@@ -23,12 +23,15 @@ jobs:
           pip install requests
 
 
-      - name: Login to Docker Hub , Pull and retag the image latest
+      - name: Login to Docker Hub
         run: |
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-          docker pull stage_front:latest
-          docker tag stage_front:latest stage_front:0.1
-          docker push stage_front:0.1
+        
+      - name: Pull and retag the image latest
+        run: |
+          docker pull darbi/stage_front:latest
+          docker tag darbi/stage_front:latest darbi/stage_front:0.1
+          docker push darbi/stage_front:0.1
           
       - name: Execute the Python script
         env:    
@@ -39,7 +42,7 @@ jobs:
           python ./changetag.py
           
       - name: Build and tag new Docker image to latest
-        run: docker build -t stage_front:latest .
+        run: docker build -t darbi/stage_front:latest .
 
       - name: Push Docker image
-        run: docker push stage_front:latest
+        run: docker push darbi/stage_front:latest
