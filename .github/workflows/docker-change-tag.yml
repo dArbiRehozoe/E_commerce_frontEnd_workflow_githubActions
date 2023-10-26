@@ -9,7 +9,7 @@ jobs:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
-        host: 41.77.19.20
+        host: 192.168.43.223
         username: darbi
         key: ${{ secrets.OMG_SECRET }}
         port: 22
