@@ -23,11 +23,9 @@ jobs:
           pip install requests
 
 
-      - name: Login to Docker Hub
-        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-        
-      - name: Pull and retag the image latest
+      - name: Login to Docker Hub , Pull and retag the image latest
         run: |
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
           docker pull stage_front:latest
           docker tag stage_front:latest stage_front:0.1
           docker push stage_front:0.1
