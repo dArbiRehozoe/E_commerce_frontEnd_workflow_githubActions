@@ -49,7 +49,7 @@ const SideMenu = () => {
           width="40px" height="40px"
           style={{marginLeft:'-10px'}}
           alt="" />
-       <div  className='logox'> hehe</div>
+       <div  className='logox'> d'Ashop</div>
         <div className='x'>
         
         <CloseRoundedIcon style={icone}/>
