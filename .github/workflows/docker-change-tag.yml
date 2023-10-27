@@ -30,8 +30,8 @@ jobs:
       - name: Pull and retag the image latest
         run: |
           docker pull darbi/stage_front:latest
-          docker tag darbi/stage_front:latest darbi/stage_front:0.1
-          docker push darbi/stage_front:0.1
+          docker tag darbi/stage_front:latest darbi/stage_front:0.2
+          docker push darbi/stage_front:0.2
           
       - name: Execute the Python script
         env:    
