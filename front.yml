@@ -33,7 +33,12 @@ spec:
                 key: api_url
           ports:
           - containerPort: 80 
-
+          
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 1
+        maxSurge: 1
 
 ---
 
