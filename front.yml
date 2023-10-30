@@ -23,22 +23,22 @@ spec:
     spec:
       containers:
         - name: react-app
-          image: darbi/stage_front:latest   # Mettez à jour l'image Docker
-          imagePullPolicy: Always  # Vous pouvez également mettre à jour la politique de récupération
+          image: darbi/stage_front:latest
+          imagePullPolicy: Always
           env:
-          - name: REACT_APP_API_URL
-            valueFrom:
-              configMapKeyRef:
-                name: my-app-config
-                key: api_url
+            - name: REACT_APP_API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: my-app-config
+                  key: api_url
           ports:
-          - containerPort: 80 
-          
-    strategy:
-      type: RollingUpdate
-      rollingUpdate:
-        maxUnavailable: 1
-        maxSurge: 1
+            - containerPort: 80
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
 
 ---
 
