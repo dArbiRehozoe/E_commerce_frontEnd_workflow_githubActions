@@ -7,8 +7,6 @@ on:
       
 jobs:
   build-and-rename-tag:
-    on_merged_pull_request:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
