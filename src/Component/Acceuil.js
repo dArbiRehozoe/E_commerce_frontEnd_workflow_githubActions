@@ -1,7 +1,5 @@
 import '../App.css';
-
 import { useProductsContext } from './MainContext';
-import ClearIcon from '@mui/icons-material/Clear';
 import { Link } from 'react-router-dom';
 import ButtonAppBar from './NavAcceuil';
 import DarkVariantExample from './slideAcceuil';

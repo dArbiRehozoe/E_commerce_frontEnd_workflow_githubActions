@@ -13,8 +13,8 @@ export default function TitlebarBelowMasonryImageList() {
       rows.push(item)
       
     ))}
-    // Products.slice(-12)
     rows.reverse()
+  
  
     // console.log(Products)
   return (

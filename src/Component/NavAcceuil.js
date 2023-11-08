@@ -8,8 +8,11 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import LoginIcon from '@mui/icons-material/Login';
+import { useMediaQuery } from 'react-responsive';
+import '../Styles/parallax.css'
 import { Link } from 'react-router-dom';
 export default function ButtonAppBar() {
+  const isSmallScreen = useMediaQuery({ maxWidth: 600 });
   return (
     <Box className='page' sx={{ flexGrow: 1}}>
       <AppBar position="fixed" style={{backgroundColor:'rgba(252,254,253,255)'}}>
@@ -18,9 +21,12 @@ export default function ButtonAppBar() {
           src={require("../photos/logo.jpg")}
           width="50px" height="50px"
           alt="" />
+          {!isSmallScreen ? 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 ,color:'#2e0d5c'}}>
+         
            d'Ashop
           </Typography>
+          : <p style={{marginLeft:'20%'}}></p> }
           <Link
        
        to='/Login'
@@ -44,7 +50,9 @@ export default function ButtonAppBar() {
           </Button>
           </Link>
         </Toolbar>
+      
       </AppBar>
+   
     </Box>
   );
 }

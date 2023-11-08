@@ -18,10 +18,12 @@ import MonPanier from "./Panier";
 import CustomizedBadges from "./Badje";
 import Acceuil from "./Acceuil";
 import Dashbord from "./Dashbord";
-
+import Parallaxe from "./Parallax.tsx";
+import { useMediaQuery } from 'react-responsive';
 function Routeur() {
     const {Products,Maisons,Vetements,Sports,menu,Electroniques}=useProductsContext()
-
+    const isSmallScreen = useMediaQuery({ maxWidth: 768 });
+    const isLargeScreen = useMediaQuery({ minWidth: 769 });
     const [user,setUser]=useState([]);
     useEffect(() => {
       const Users= JSON.parse(localStorage.getItem('user'));
@@ -49,7 +51,9 @@ function Routeur() {
         <Route path="/" >
         <Route index element={
           <div style={menu? menuAtrue:menuAfalse}>
-          <Acceuil></Acceuil>
+           
+          <Parallaxe ></Parallaxe>
+
           </div>
           
         }/>
@@ -139,8 +143,12 @@ const menuComptefalse={
 overflowY:'hidden',marginLeft:'0%'
 }
 const menuAtrue={
-  overflow:'hidden',marginLeft:'20%'
+  width:'50%',
+  backgroundColor:'red',
+  overflow:'hidden',marginLeft:'0%'
 }
 const menuAfalse={
-  overflow:'hidden',marginLeft:'5%'
+  width:'200px',
+  backgroundColor:'red',
+  overflow:'hidden',marginLeft:'0%'
 }
