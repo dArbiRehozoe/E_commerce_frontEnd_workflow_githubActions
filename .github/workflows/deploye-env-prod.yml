@@ -1,0 +1,53 @@
+name: Deploy on Open Pull Request
+
+on:
+  pull_request:
+    types:
+      - closed
+      
+jobs:
+  build-and-rename-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name : change url
+        run: | 
+          sed -i 's/http:\/\/34.138.51.224:5000/http:\/\/34.138.51.224:5000/g' .env
+      - name: Login to Docker Hub
+        run: |
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+        
+
+      - name: install the gcloud cli
+        uses: google-github-actions/setup-gcloud@v0
+        with:
+          project_id: ${{ secrets.GOOGLE_PROJECT }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          install_components: 'gke-gcloud-auth-plugin'
+          export_default_credentials: true
+
+      - name: auth gke
+        env:
+          GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
+        run: |
+          gcloud auth configure-docker us-central1-docker.pkg.dev
+    
+
+      - name: reload gke
+        env:
+          GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
+        run: |
+          gcloud container clusters get-credentials env-test-stage --region us-east1 --project elevated-apex-403206
+          sed -i 's/image: darbi\/stage_front:latest/image: darbi\/stage_front:0.1/g' front.yaml
+          kubectl apply -f front.yml
+      
+      - name: deploy to gke
+        env:
+          GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
+        run: |
+          gcloud container clusters get-credentials env-test-stage --region us-east1 --project elevated-apex-403206
+          sed -i 's/image: darbi\/stage_front:0.1/image: darbi\/stage_front:latest/g' front.yaml
+          kubectl apply -f front.yml

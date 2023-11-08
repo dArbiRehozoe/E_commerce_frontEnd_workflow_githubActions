@@ -26,7 +26,7 @@ export default function CustomizedBadges() {
            
      
        
-    <div style={{zIndex:'100',position:'fixed',bottom:'5%',right:'4%',backgroundColor:'rgba(252,254,253,255)',width:'70px',height:'65px',padding:'10px',
+    <div style={{zIndex:'100',position:'fixed',bottom:'5%',right:'4%',backgroundColor:'rgba(252,254,253,255)',padding:'10px',
     borderRadius:'50%'
     }}>
         

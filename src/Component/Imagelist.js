@@ -8,10 +8,13 @@ import { useProductsContext } from './MainContext';
 export default function TitlebarBelowMasonryImageList() {
     const {ProductA}=useProductsContext();
     const apikey=process.env.REACT_APP_API_URL;
-   
-    // Copiez ProductA dans un nouveau tableau et inversez-le
-    let rows = ProductA ? [...ProductA] : [];
-    rows = rows.reverse();
+    const rows=[]
+    {ProductA.reverse().map((item) => (
+      rows.push(item)
+      
+    ))}
+    // Products.slice(-12)
+    rows.reverse()
  
     // console.log(Products)
   return (

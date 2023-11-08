@@ -35,7 +35,16 @@
     width: 100%;
 
   }
-
+.backgroundcompte{
+position: absolute;
+height: 100%;
+width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  overflow: hidden;
+  background-color: #013c73;
+  z-index: -10;
+}
   .columnrow {
     float: left;
    
@@ -57,12 +66,16 @@
 .liste{
     color: rgb(141, 141, 141);
     margin-top: 10px;
+
 }
 .page{
  margin-bottom: 6%; 
 }
 .panierprix{
   margin-left: 18%;
+}
+.alert{
+  margin-top:10%;
 }
 @media only screen and (max-width: 1200px) {
   .page{
@@ -71,7 +84,7 @@
    .panierprix{
     margin-left: 3%;
   }
-  
+ 
     }
 @media only screen and (max-width: 1000px) {
  
@@ -84,9 +97,10 @@
    .historique{
     width: 90%;
     margin-top:75%;
-
-
-}
+  }
+  .alert{
+    margin-top: 90%;
+  }
     }
 @media only screen and (max-width: 600px) {
   .date{
@@ -99,6 +113,9 @@
         margin-top: 110%;
 
     /* color: rgba(220, 220, 220, 0.418); */
+    }
+    .compteResposive{
+      margin-left: 12%;
     }
     .panierprix{
       margin-left: 0%;

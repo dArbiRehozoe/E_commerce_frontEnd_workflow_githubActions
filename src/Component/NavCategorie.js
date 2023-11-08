@@ -106,9 +106,7 @@ function NavScrollCategorie(props) {
         component="form"
         sx={{ p: '2px 4px', display: 'flex', alignItems: 'center',  width: 320 }}
       >
-        <IconButton sx={{ p: '10px' }} aria-label="menu">
-          <MenuIcon />
-        </IconButton>
+        
         <InputBase
           value={props.search}
           onChange={props.handleChangeSearch}

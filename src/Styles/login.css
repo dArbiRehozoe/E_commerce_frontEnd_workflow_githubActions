@@ -1,41 +1,39 @@
 .blurlogin{
     position: absolute;
-    background-image: url('../photos/Abstract Fitness Gym 2.jpg');
+    background-image: url('../photos/back2.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     height: 100%;
     z-index: -1;
-    -webkit-filter: blur(3px);
+    /* -webkit-filter: blur(3px);
     -moz-filter: blur(3px);
     -o-filter: blur(3px);
     -ms-filter: blur(3px);
-    filter: blur(3px);
+    filter: blur(3px); */
 
 }
 .contenairelogin{
     margin: auto;
-    width: 55%;
+   color: white;
+    width: 400px;
     padding: 1%;
-height: 50%;
+height:450px;
  display: flex;
   margin-top: 9%;
-  background-color: rgba(252,254,253,255);
-  border: 1px solid rgba(252,254,253,255);
+  background-color: rgba(255, 255, 255, 0.181);
   box-shadow: 3px 3px 7px rgba(21, 21, 21, 0.5);
-  border-radius: 2%;
+  border-radius: 5%;
+  -webkit-backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
+  -o-backdrop-filter: blur(10px);
+  -ms-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 @media only screen and (max-width: 1000px) {
-    .contenairelogin{
-    
-        width: 80%;
-     
-    }
+ 
 }
 @media only screen and (max-width: 600px) {
     
-    .contenairelogin{
-        height: 80%; 
-        width: 80%;
-    }
+  
     }

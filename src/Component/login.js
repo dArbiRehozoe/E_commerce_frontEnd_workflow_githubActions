@@ -55,24 +55,34 @@ function Login() {
       
     </div>
       <div className="contenairelogin">
-        
-        <div className="divinput">
-        <Link
-       
-       to='/'
-     
-     >
-           <img 
-          src={require("../photos/logo.jpg")}
-          width="10%" height="10%"
-          alt="" />
-
-          </Link>
+        <div className="blurtestlogin"></div>
+        <div className="divinputlogin">
+        <div 
+                style={{
+                  position:'absolute',
+                  height:'100%',
+                  width:'100%',
+                  display:'flex',
+                  left:'60px',
+                  top:'20px'
+                }}
+              >
+                <Link to='/'>
+                  <img 
+                    src={require("../photos/logo.jpg")}
+                    width="100%" height="10%"
+                    style={{borderRadius:'100%'}}
+                    alt=""
+                  />
+                </Link>
+              </div>
+          <br />
+              <h4 style={{marginTop:'45px',marginLeft:'50px',color:'white'}}>Se connecter a d'Ashop</h4>
   
             <div className="form">
                   <FormControl sx={{ m: 1,marginTop:'10%', width: '30ch' }} variant="standard">
                     <Input
-                  
+                  style={{color:'white'}}
                     onChange={handleChange}
                     value={formValue.pseudo || ''}
                     name="pseudo"
@@ -81,17 +91,18 @@ function Login() {
                     type='text'
                     startAdornment={
                         <InputAdornment position="start">
-                          <AccountCircle />                     
+                          <AccountCircle   sx={{color:'white'}} />                     
                         </InputAdornment>
                       }
                   
                     />
                   </FormControl>
                  
-                
+                <br />
                   <FormControl sx={{ m: 1,marginTop:'8%', width: '30ch' }} variant="standard">
                     <Input
                     name="mdp"
+                    style={{color:'white'}}
                     onChange={handleChange}
                     value={formValue.mdp || ''}
                     placeholder="Mots de passe"
@@ -100,7 +111,7 @@ function Login() {
                     startAdornment={
                         <InputAdornment position="start">
                           
-                        <VpnKeyIcon /> 
+                        <VpnKeyIcon   sx={{color:'white'}}/> 
                         
                         </InputAdornment>
                       }
@@ -112,7 +123,7 @@ function Login() {
                             onClick={handleClickShowPassword}
                             onMouseDown={handleMouseDownPassword}
                           >
-                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                            {showPassword ? <VisibilityOff sx={{color:'white'}}/> : <Visibility sx={{color:'white'}}/>}
                           </IconButton>
                         </InputAdornment>
                       }
@@ -122,7 +133,7 @@ function Login() {
                 <br />
                 <div style={{display:'flex',width:'150%'}}>
                 <Link  to='/Register'> 
-                  <Button variant="outlined">s'inscrire</Button>
+                  <Button  variant="outlined" sx={{textTransform:'unset',backgroundColor:'#003465',color:'white'}}>S'inscrire</Button>
                   </Link>
                   <Button 
                     variant="contained"
@@ -135,22 +146,18 @@ function Login() {
                     color="secondary"
                     onClick={handleSubmit}
                     size="medium"
-                    sx={{marginLeft:'8%'}}
+                    sx={{marginLeft:'20%',textTransform:'unset'}}
                   >
-                <span style={{ whiteSpace: 'nowrap' }}>se connecter</span>
+                <span style={{ whiteSpace: 'nowrap' }}>Se connecter</span>
                   </Button> 
                   </div>
+                  <br />
                   <p>
-                    <Link  to='/Reset_passwork'>Mots de passe oublier? </Link>
+                    <Link  to='/Reset_passwork' style={{color:'white',marginLeft:'45px'}}>Mots de passe oublier? </Link>
                   </p>
             </div>
         </div>
-        <div className="image">
-          <img 
-          src={require("../photos/Ecommerce Website Development _ B2B_B2C Ecommerce Solutions (1).jpg")}
-          width="100%" height="100%"
-          alt="" />
-        </div>
+     
       </div>
     </div>
   
