@@ -3,7 +3,7 @@ name: pipeline ci/cd environnement test pull request
 on:
   push:
     branches:
-      - main
+      - hehe
 
 jobs:
   build-and-rename-tag:
