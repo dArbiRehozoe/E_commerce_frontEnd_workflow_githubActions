@@ -17,12 +17,17 @@ jobs:
 
       - name : change url
         run: | 
-          sed -i 's/http:\/\/34.138.51.224:5000/http:\/\/34.138.51.224:5000/g' .env
-      - name: Login to Docker Hub
+          sed -i 's/http:\/\/34.138.51.224:5000/http:\/\/34.148.63.195:5000/g' .env
+            - name: Login to Docker Hub
         run: |
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-        
+          
+      - name: Build and tag new Docker image to latest
+        run: docker build -t darbi/stage_front:latest .
 
+      - name: Push Docker image
+        run: docker push darbi/stage_front:latest
+        
       - name: install the gcloud cli
         uses: google-github-actions/setup-gcloud@v0
         with:
