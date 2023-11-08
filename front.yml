@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: my-app-config
 data:
-  api_url: http://192.168.43.223:5000
+  api_url: http://34.148.63.195:5000
 
 ---
 
