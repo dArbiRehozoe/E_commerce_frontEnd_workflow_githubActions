@@ -7,6 +7,8 @@ on:
       
 jobs:
   build-and-rename-tag:
+    on_merged_pull_request:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +27,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v0
         with:
           project_id: ${{ secrets.GOOGLE_PROJECT }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
           install_components: 'gke-gcloud-auth-plugin'
           export_default_credentials: true
 
@@ -40,14 +42,14 @@ jobs:
         env:
           GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
         run: |
-          gcloud container clusters get-credentials env-test-stage --region us-east1 --project elevated-apex-403206
-          sed -i 's/image: darbi\/stage_front:latest/image: darbi\/stage_front:0.1/g' front.yaml
+          gcloud container clusters get-credentials env-prod-stage --region us-east1 --project elevated-apex-403206
+          sed -i 's/image: darbi\/stage_front:latest/image: darbi\/stage_front:0.1/g' front.yml
           kubectl apply -f front.yml
       
       - name: deploy to gke
         env:
           GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
         run: |
-          gcloud container clusters get-credentials env-test-stage --region us-east1 --project elevated-apex-403206
-          sed -i 's/image: darbi\/stage_front:0.1/image: darbi\/stage_front:latest/g' front.yaml
+          gcloud container clusters get-credentials env-prod-stage --region us-east1 --project elevated-apex-403206
+          sed -i 's/image: darbi\/stage_front:0.1/image: darbi\/stage_front:latest/g' front.yml
           kubectl apply -f front.yml
