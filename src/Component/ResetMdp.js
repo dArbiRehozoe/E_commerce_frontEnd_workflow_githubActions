@@ -75,10 +75,12 @@ function ResetMdp() {
     <div className="contenair">
       <div className="blurr"></div>
       <Link  to='/Login' > 
-          <Button style={{margin:'1%',color:'white'}} startIcon={<ArrowBackIosIcon />}  variant="outlined">Se connecter</Button>
+          <Button style={{margin:'1%',color:'white',textTransform:'unset'}} startIcon={<ArrowBackIosIcon />}  variant="outlined">Se connecter</Button>
       </Link>
 
       <div className="divform">
+
+        <div className="formm">
       <Link
        
        to='/'
@@ -86,13 +88,12 @@ function ResetMdp() {
      >
             <img 
           className="img"
+        
           src={require("../photos/logo.jpg")}
-          width="10%" height="10%"
+          width="100%" height="100%"
           alt="" />
 
           </Link>
-
-        <div className="formm">
    
           {Affichage ?
             <div style={{
@@ -101,7 +102,7 @@ function ResetMdp() {
               
               padding:'10%'
             }} >
-              <p>Entrer l'Email lier a votre compte pour vous envoyer une code de recuperation </p>
+              <p style={{marginTop:'20px'}}>Entrer l'adresse email lier a votre compte pour vous envoyer une code de recuperation </p>
               <FormControl sx={{ m: 1,marginTop:'5%',width:'100%'}} variant="standard">
                 <Input
                   onChange={handleChange}
@@ -121,7 +122,7 @@ function ResetMdp() {
         <p style={{ color: 'red' }}>Adresse e-mail non valide</p>
       )}
               </FormControl> 
-              <br />
+          
               <LoadingButton
                     loading={load}
                     loadingPosition="end"
@@ -155,7 +156,7 @@ function ResetMdp() {
                     } }
                     color="secondary"
                     size="medium"
-                    sx={{marginTop:'5%',marginLeft:'20%',width: '20ch'}}
+                    sx={{marginTop:'3%',marginLeft:'27%',width: '20ch'}}
                   >
                    Envoyer
               </LoadingButton>
@@ -166,20 +167,21 @@ function ResetMdp() {
           :
             <div style={{ width:'70%',
             margin:'auto',
-       
+            marginLeft:'10%',
+         
             padding:'10%'}}>
               <Button 
                 variant="contained"
                 startIcon={<ArrowBackIosIcon />}
                 onClick={ (e)=>{ setAffichage(true)}}
-                color="secondary"
+            
                 size="medium"
-                sx={{marginLeft:'-10%'}}
+                sx={{   marginTop:'5%',marginLeft:'-20%',textTransform:'unset',backgroundColor:'#003465'}}
               >
-                retour
+                Retour
               </Button> 
               <br />
-              <FormControl sx={{ m: 1,marginTop:'5%', width: '30ch' }} variant="standard">
+              <FormControl sx={{ m: 1,marginTop:'7%', width: '30ch' }} variant="standard">
                 <Input
                   name="code"
                     onChange={handleChange}
@@ -257,7 +259,10 @@ function ResetMdp() {
                         formValue.confirmMdp!=formValue.mdp ||
                         formValue.code===undefined ||
                         formValue.email===undefined ||
-                        formValue.mdp ===undefined  
+                        formValue.mdp ===undefined  ||
+                        formValue.code=== "" ||
+                        formValue.email=== "" ||
+                        formValue.mdp === ""  
                       } 
                       onClick={handleSubmit}
                       color="secondary"                        
@@ -267,7 +272,7 @@ function ResetMdp() {
                       Réinitialiser 
                   </Button>
                 </div>  
-    }
+     } 
     </div>
     </div>
     </div>

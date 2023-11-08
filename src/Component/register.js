@@ -15,6 +15,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import '../Styles/register.css'
+import { right } from "@popperjs/core";
 function Register() {
   const [formValue, setFormValue] = useState({});
   const {Register}=useProductsContext();
@@ -66,46 +67,55 @@ function Register() {
  
   return (
     <div className="divMere">
-    <div className="blur">
-      
-    </div>
-      <div className="contenaire">
-        
+      <div className="blur">  
+      </div>
+      <div className="contenaire">  
         <div className="divinput">
-        <Link
-       
-       to='/'
-     
-     >
-        <img 
-          src={require("../photos/logo.jpg")}
-          width="10%" height="10%"
-          alt="" />
-
-          </Link>
-     
-            <div className="form">
-                  <FormControl sx={{ m: 1,marginTop:'5%', width: '30ch' }} variant="standard">
-                    <Input
-                  
-                    onChange={handleChange}
-                    value={formValue.pseudo || ''}
-                    name="pseudo"
-                    placeholder="Pseudo"
-                  
-                    type='text'
-                    startAdornment={
-                        <InputAdornment position="start">
-                          <AccountCircle />                     
-                        </InputAdornment>
-                      }
-                  
-                    />
+          <div className="form">
+            <div  style={{display:'flex'}}>
+              <div
+                style={{
+                  position:'absolute',
+                  height:'100%',
+                  width:'100%',
+                  display:'flex',
+                  right:'3%',
+                  top:'10px'
+                }}
+              >
+                <Link to='/'>
+                  <img 
+                    src={require("../photos/logo.jpg")}
+                    width="100%" height="10%"
+                    style={{borderRadius:'100%'}}
+                    alt=""
+                  />
+                </Link>
+              </div>
+              <h4 style={{marginTop:'15px',marginLeft:'10px',position:'absolute',color:'white'}}>S'inscrire a d'Ashop</h4>
+             </div>
+            <br />
+            <FormControl sx={{ m: 1,marginTop:'7%', width: '30ch' }} variant="standard">
+              <Input
+                onChange={handleChange}
+                value={formValue.pseudo || ''}
+                name="pseudo"
+                placeholder="Pseudo"
+                style={{color:'white'}}
+                type='text'
+                startAdornment={
+                  <InputAdornment position="start">
+                    <AccountCircle   sx={{color:'white'}}/>                     
+                      </InputAdornment>
+                    }
+                  />
                   </FormControl>
+          
                  
-                  <FormControl sx={{ m: 1,marginTop:'5%', width: '30ch' }} variant="standard">
+                 <br />
+                  <FormControl sx={{ m: 1,marginTop:'2%', width: '30ch' }} variant="standard">
                     <Input
-                  
+                      style={{color:'white'}}
                     onChange={handleChange}
                     name="email"
                     value={formValue.email || ''}
@@ -115,20 +125,24 @@ function Register() {
                     startAdornment={
                         <InputAdornment position="start">
                           
-                        <EmailIcon /> 
+                        <EmailIcon sx={{color:'white'}} /> 
                      
                         </InputAdornment>
                       }
                   
                     />
                   </FormControl>
-                  {!isValidEmail && (
-        <p style={{ color: 'red' }}>Adresse e-mail non valide</p>
+            
+                  {!isValidEmail && (   <>   <br />
+        <b style={{ color: 'red' }}>Adresse e-mail non valide</b> </>
       )}
-                  <FormControl sx={{ m: 1,marginTop:'5%', width: '30ch' }} variant="standard">
+      <br />
+     
+                  <FormControl sx={{ m: 1,marginTop:'2%', width: '30ch' }} variant="standard">
                     <Input
                     name="mdp"
                     onChange={handleChange}
+                        style={{color:'white'}}
                     value={formValue.mdp || ''}
                     placeholder="Mots de passe"
                     id="standard-adornment-password"
@@ -136,7 +150,7 @@ function Register() {
                     startAdornment={
                         <InputAdornment position="start">
                           
-                        <VpnKeyIcon  /> 
+                        <VpnKeyIcon sx={{color:'white'}} /> 
                         
                         </InputAdornment>
                       }
@@ -148,14 +162,14 @@ function Register() {
                             onClick={handleClickShowPassword}
                             onMouseDown={handleMouseDownPassword}
                           >
-                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                            {showPassword ? <VisibilityOff  sx={{color:'white'}}/> : <Visibility  sx={{color:'white'}}/>}
                           </IconButton>
                         </InputAdornment>
                       }
                     />
                   </FormControl>
                   <br />
-                  <FormControl sx={{ m: 1,marginTop:'5%',width: '30ch' }} variant="standard">
+                  <FormControl sx={{ m: 1,marginTop:'2%',width: '30ch' }} variant="standard">
                             <Input
                           error= {formValue.confirmMdp!=formValue.mdp}
                           
@@ -163,7 +177,7 @@ function Register() {
                           value={formValue.confirmMdp|| ''}
                             name="confirmMdp" 
                             onChange={handleChange}
-                        
+                            style={{color:'white'}}
                             placeholder="Confirme mots de passe"
                               id="standard-adornment-password"
                               type={showConfPassword ? 'text' : 'password'}
@@ -171,7 +185,7 @@ function Register() {
                                 <InputAdornment position="start">
                                 
                                  
-                                    <VpnKeyIcon /> 
+                                    <VpnKeyIcon sx={{color:'white'}}/> 
                              
                                 </InputAdornment>
                               }
@@ -182,7 +196,7 @@ function Register() {
                                     onClick={handleClickShowConfPassword}
                                     onMouseDown={handleMouseDownPassword}
                                   >
-                                    {showConfPassword ? <VisibilityOff /> : <Visibility />}
+                                    {showConfPassword ? <VisibilityOff sx={{color:'white'}} /> : <Visibility sx={{color:'white'}} />}
                                   </IconButton>
                                 </InputAdornment>
                               }
@@ -204,21 +218,20 @@ function Register() {
                     color="secondary"
                     onClick={handleSubmit}
                     size="medium"
-                    sx={{marginTop:'5%',width: '34ch'}}
+                    sx={{marginTop:'3%',width: '34ch'}}
                   >
                     S'inscrire
                   </Button> 
-                  <p>
-            Vous avez deja un compte?  <Link  to='/Login'>Se connecter</Link>
-                  </p>
+                  <br />
+                  <FormControl   sx={{color:'white',marginTop:'2%',display:'flex'}}>
+                <p>  Vous avez deja un compte?  <Link to='/login'>
+                    Se connecter
+         </Link></p>
+                    </FormControl>
+                  
             </div>
         </div>
-        <div className="image">
-          <img 
-          src={require("../photos/Online shopping application vector concept version 16_.jpg")}
-          width="100%" height="100%"
-          alt="" />
-        </div>
+      
       </div>
     </div>
   );

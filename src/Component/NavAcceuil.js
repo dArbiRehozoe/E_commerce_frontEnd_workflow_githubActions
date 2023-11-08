@@ -14,18 +14,10 @@ export default function ButtonAppBar() {
     <Box className='page' sx={{ flexGrow: 1}}>
       <AppBar position="fixed" style={{backgroundColor:'rgba(252,254,253,255)'}}>
         <Toolbar >
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          > */}
              <img 
           src={require("../photos/logo.jpg")}
           width="50px" height="50px"
           alt="" />
-          {/* </IconButton> */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 ,color:'#2e0d5c'}}>
            d'Ashop
           </Typography>
@@ -38,7 +30,6 @@ export default function ButtonAppBar() {
            variant="outlined"
            sx={{width:'120px',borderRadius:20,right:'10%',textTransform:'unset'}}
            > 
-          {/* <LoginIcon sx={{marginRight:'10px'}} /> */}
           Se connecter
           </Button>
           </Link>

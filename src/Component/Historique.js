@@ -86,13 +86,13 @@ function Historique() {
       <div style={{display:'flex'}}>
       
         <div>
-        <h4 className="titre">Liste des factures et Historiques de vos achats :</h4>
+        <h4 className="titre" style={{marginTop:"5%",color:'#4d488c'}}>Liste des factures et Historiques de vos achats :</h4>
         <ul className="historique">
           
      { rows.reverse() }
      { rows.length === 0
            ? 
-           <Alert  s severity="error"> 
+           <Alert  severity="error" className='alert'  style={{width:'90%'}}> 
            Auccun facture n'a été trouver
            </Alert>
     
@@ -101,18 +101,7 @@ function Historique() {
           <div ></div> 
 
           }
-          {/* {Historique.filter((facture) => {
-            
-            
-            // Vérifiez si selectedDate est défini et est une instance de Date
-            if (selectedDate) {
-              // Comparez la date sélectionnée avec la date de la facture
-             
-            }
-            return false; // Aucune date sélectionnée, ne montrez rien
-          }).map((facture) => (
-         
-          ))} */}
+
         </ul>
         </div>
 

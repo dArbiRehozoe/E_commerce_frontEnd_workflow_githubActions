@@ -113,7 +113,7 @@ function Routeur() {
         
         } />
         <Route path="/MonCompte" element={
-         <div style={menu? menutrue:menufalse}>
+         <div style={menu? menuComptetrue:menuComptefalse}>
            <CompteUser/>
          </div>
         } />
@@ -131,6 +131,12 @@ const menutrue={
 }
 const menufalse={
   overflow:'hidden',marginLeft:'15%'
+}
+const menuComptetrue={
+  overflow:'hidden',marginLeft:'10%'
+}
+const menuComptefalse={
+overflowY:'hidden',marginLeft:'0%'
 }
 const menuAtrue={
   overflow:'hidden',marginLeft:'20%'

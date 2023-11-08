@@ -163,15 +163,6 @@ function Listproduct(props) {
       <div className="divDetails">
          <div className="roww">
          <div className="columnrow" style={{backgroundColor:"white"}}>
-        {/* <img
-          className="d-block w-100"
-          src={require("../photos/map.jpg")}
-          alt="First slide"
-          style={{
-          height:"100%"
-          }}
-        />
-        */}
           <IconButton
                 sx={{left:"5%",height:'50px',top:'20px',position:'absolute',backgroundColor:'white',color:'gray'}}
                 onClick={() => setShowDetail(null)}
@@ -191,7 +182,6 @@ function Listproduct(props) {
         <div >
 <h5 className="widget-title" style={{textAlign:'center',textDecoration:'underline'}}>{product.design}
 </h5>
-{/* {text} */}
   <b >Prix:</b>   ${product.prix - (product.prix*product.promo)/100} <br />
 <b>Stock:</b> {product.qt} <br />
   <b>Catégorie:</b>  {product.categorie} <br />
@@ -199,27 +189,37 @@ function Listproduct(props) {
   <b>Stock</b>:{product.qt} <br />
   <b>Description</b>:  <br />   
   <p style={{
-  // overflowY: 'auto',
-  // maxHeight: '100px',
-  // whiteSpace: 'pre-wrap', // Pour conserver les sauts de ligne
-  // fontFamily: 'monospace'
   }}>{product.description}</p> <br />
-   <Button
+     {
+                product.qt !==0 ?
+                <Button
         
-        variant="contained"
-        startIcon=
-          {Panier.some((item) => item.id === product.id) || product.qt !==0
-            ? <RemoveShoppingCartIcon/>
-            :<AddShoppingCartIcon /> }
-        
-        sx={{top:'-20px',margin:'auto'}}
-        onClick={(e)=>{addPanier(product)}}
-        color='secondary'
-      >    
-    {Panier.some((item) => item.id === product.id)
-      ? 'Retirer du panier'
-      : 'Ajouter au panier'}
-      </Button>
+                variant="contained"
+                startIcon=
+                  {Panier.some((item) => item.id === product.id) 
+                    ? <RemoveShoppingCartIcon/>
+                    :<AddShoppingCartIcon /> }
+                
+                sx={{top:'-20px',margin:'auto'}}
+                onClick={(e)=>{addPanier(product)}}
+                color='secondary'
+              >    
+            {Panier.some((item) => item.id === product.id)
+              ? 'Retirer du panier'
+              : 'Ajouter au panier'}
+              </Button>
+                :
+                <Button
+                variant="contained"
+                color='warning'
+                
+      
+              >  
+                 <ProductionQuantityLimitsRoundedIcon/>Produit en rupture de stock
+              </Button>
+              
+                }
+  
 </div>
         </div>
        

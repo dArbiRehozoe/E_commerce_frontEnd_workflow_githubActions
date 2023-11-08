@@ -67,17 +67,20 @@ function CompteUser() {
   };
 
   return (
-    <div style={{overflow:'hidden'}}>
-   
-    <div style={{marginTop:'7%'}}>
+    <div className="compteResposive" style={{overflow:'hidden',}}>
+      <div className="backgroundcompte"></div>
+    <h3 style={{textAlign:'center',color:'white',marginTop:'4%' ,textDecoration:'underline'}}>Mes informations personnel :</h3>
+    <div style={{marginTop:'4%',zIndex:1000}}>
+      <div style={{margin:"auto",maxWidth: 505,zIndex:1000}}>
 
-      <Card sx={{ maxWidth: 1005, m: 2 ,backgroundColor:'rgba(255, 255, 255, 0.834)'}}>
+     
+      <Card sx={{ maxWidth: 505, m: 2,backgroundColor:'white',zIndex:1000}}>
       <CardHeader
         avatar={
           (
            
               
-            <Avatar sx={{ width: 150, height:150,fontSize: '60px'}}>
+            <Avatar sx={{ width: 150, height:150,fontSize: '60px',backgroundColor:'#3c83c4'}}>
             {avat}
               </Avatar>
            
@@ -88,7 +91,7 @@ function CompteUser() {
     
         subheader={ <div  >
           <b style={{fontSize:'20px',color:'#c34a91'}}   onClick={handleInputFocus}> Pseudo:</b>
-         
+         <br />
             <Input 
                disabled={enablePseudo}
              
@@ -96,7 +99,7 @@ function CompteUser() {
             value={formValue.pseudo || '' }
             inputProps="description" 
             type="text" name="pseudo" id="" 
-            sx={{width:'50%',marginTop:'2%',marginLeft:'21%'}}
+            sx={{width:'50%',marginTop:'2%'}}
             />
             
         
@@ -129,19 +132,20 @@ function CompteUser() {
     
       />
      <hr />
-      <CardContent sx={{marginLeft:'17%'}}>
+      <CardContent sx={{marginLeft:'7%'}}>
        
        <Typography variant="body2" color="text.secondary" component="p">
          {
            <div >
                <b style={{fontSize:'17px',color:'#c34a91'}} onClick={handleInputFocusMail}>Adresse Email:</b>
+               <br />
              <Input 
             disabled={enableMail}    
             onChange={handleChange}
             inputProps="description" 
             type="email" name="email" id="" 
             value={formValue.email || ''}
-            sx={{width:'50%',marginTop:'2%',marginLeft:'15%'}}
+            sx={{width:'70%',marginTop:'2%'}}
             />
 
        {
@@ -175,20 +179,21 @@ function CompteUser() {
    
    </CardContent>
 
-      <CardContent sx={{marginLeft:'17%'}}>
+      <CardContent sx={{marginLeft:'7%',marginBottom:'10%'}}>
        
           <Typography variant="body2" color="text.secondary" component="p">
             
             {
              <div >
                 <b style={{fontSize:'17px',color:'#c34a91'}}> Mots de passe:</b>
+                <br />
                  <Input 
             disabled    
             onChange={handleChange}
             inputProps="description" 
             value={formValue.mdp || user.password}
             type="password" name="mdp" id="" 
-            sx={{width:'50%',marginTop:'2%',marginLeft:'15%'}}
+            sx={{width:'70%',marginTop:'2%'}}
             />
               
 <IconButton aria-label="settings"  style={{float:'right',marginRight:'10px',marginTop:'10px',color:'pink'}} 
@@ -202,24 +207,9 @@ function CompteUser() {
           </Typography>
       
       </CardContent>
-<hr />
-      <CardContent sx={{float:'right'}}>
-       
-          <Typography variant="body2" color="text.secondary" component="p">
-            
-            {
-            <Button variant="contained" color="error" onClick={()=>{
-              deleteUser(user.iduser)
-              deconnection()
-            }} startIcon={<DeleteIcon />}>
-        Supprimer mon compte
-          </Button>
-            }
-          </Typography>
-      
-      </CardContent>
+
     </Card>
-     
+    </div>
    
       <Dialog
           open={open}
@@ -233,16 +223,16 @@ function CompteUser() {
           onClose={handleClose}
           aria-describedby="alert-dialog-slide-description"
         >
-          <DialogTitle><h3 style={{textAlign:'center'}}>Ajouter une professeur</h3></DialogTitle>
+          <DialogTitle><h3 style={{textAlign:'center'}}>Modifier mon mots de passe </h3></DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
             <div className='divi'> 
               <form className="publier">   
-                  <div style={{marginTop:'10px',fontWeight:"800"}}>
+                  <div style={{marginTop:'0px',fontWeight:"800"}}>
                   <TextField
                    multiline
                    name='oldpassword'
-                   label="Old password"
+                   label="Ancien Mots de passe"
                     type="text" 
                     id="outlined-multiline-flexible"
                     maxRows={4}
@@ -259,7 +249,7 @@ function CompteUser() {
            <TextField
                 id="outlined-multiline-flexible"
                 name='newpassword'
-                label="newpassword"
+                label="Nouveau Mots de passe"
                 type="text" // Modifiez le type de 'text' à 'number'
                 maxRows={4}
                 max={100}
@@ -271,7 +261,7 @@ function CompteUser() {
           <TextField
            multiline
            name='confirmPassword'
-           label="Confirm Password"
+           label="Confirme Mots de passe"
             type="text" 
             id="outlined-multiline-flexible"
             maxRows={4}

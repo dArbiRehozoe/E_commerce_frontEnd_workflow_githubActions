@@ -1,9 +1,9 @@
 name: pipeline ci/cd environnement test pull request
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types:
+      - opened
 
 jobs:
   build-and-rename-tag:
@@ -29,9 +29,9 @@ jobs:
         
       - name: Pull and retag the image latest
         run: |
-          docker pull darbi/stage_front:latest
-          docker tag darbi/stage_front:latest darbi/stage_front:0.2
-          docker push darbi/stage_front:0.2
+          docker pull darbi/stage_app:latest
+          docker tag darbi/stage_app:latest darbi/stage_app:0.3
+          docker push darbi/stage_app:0.3
           
       - name: Execute the Python script
         env:    
@@ -42,16 +42,16 @@ jobs:
           python ./changetag.py
           
       - name: Build and tag new Docker image to latest
-        run: docker build -t darbi/stage_front:latest .
+        run: docker build -t darbi/stage_app:latest .
 
       - name: Push Docker image
-        run: docker push darbi/stage_front:latest
+        run: docker push darbi/stage_app:latest
 
       - name: install the gcloud cli
         uses: google-github-actions/setup-gcloud@v0
         with:
           project_id: ${{ secrets.GOOGLE_PROJECT }}
-          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
           install_components: 'gke-gcloud-auth-plugin'
           export_default_credentials: true
 
@@ -62,10 +62,18 @@ jobs:
           gcloud auth configure-docker us-central1-docker.pkg.dev
     
 
+      - name: reload gke
+        env:
+          GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
+        run: |
+          gcloud container clusters get-credentials env-test-stage --region us-east1 --project elevated-apex-403206
+          sed -i 's/image: darbi\/stage_app:latest/image: darbi\/stage_app:0.1/g' Flask_app.yaml
+          kubectl apply -f Flask_app.yml
+      
       - name: deploy to gke
         env:
           GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
         run: |
           gcloud container clusters get-credentials env-test-stage --region us-east1 --project elevated-apex-403206
-          sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" front.yml
-          kubectl apply -f front.yml
+          sed -i 's/image: darbi\/stage_app:0.1/image: darbi\/stage_app:latest/g' Flask_app.yaml
+          kubectl apply -f Flask_app.yml
