@@ -32,7 +32,7 @@ export function ProductsProvider({ children }) {
   const Register = async (newUser) => {
     axios.post(`${apikey}/register`, newUser).then((response)=>{
       const data = response.data;
-      console.log(data)
+   
       // Si le backend renvoie un message d'erreur, affichez-le
       if (data.message) {
         Swal.fire({
@@ -90,11 +90,11 @@ export function ProductsProvider({ children }) {
       
   })}
   const Login = async (User) => {
-    console.log(User);
+    
     try {
       const response = await axios.post(`${apikey}/login`, User);
       const data = response.data;
-      console.log(data)
+    
       // Si le backend renvoie un message d'erreur, affichez-le
       if (data.message) {
         Swal.fire({
