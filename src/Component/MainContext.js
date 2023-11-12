@@ -335,10 +335,7 @@ export function ProductsProvider({ children }) {
       // Effectuez la requête à votre API Flask ici
       if (users !== null && typeof users === 'object' && 'iduser' in users) {
         // Accédez à la propriété 'iduser' ici
-        axios.get(`${apikey}/total_money_spent_last_7_days_by_day`, {
-          headers: {
-           Authorization: `Bearer ${users.access_token}`, 
-        }})
+        axios.get(`${apikey}/total_money_spent_last_7_days_by_day`)
         .then(response => {
        setCharts(response.data)
       
@@ -351,10 +348,7 @@ export function ProductsProvider({ children }) {
   const donnet =(users)=>{
     if (users !== null && typeof users === 'object' && 'iduser' in users) {
       // Accédez à la propriété 'iduser' ici
-      axios.get(`${apikey}/number_of_orders_by_category`, {
-        headers: {
-         Authorization: `Bearer ${users.access_token}`, 
-      }})
+      axios.get(`${apikey}/number_of_orders_by_category`)
       .then(response => {
      setDonnets(response.data)
     
