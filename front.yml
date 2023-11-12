@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: react-app
-          image: darbi/stage_front:0.2
+          image: darbi/stage_front:latest
           imagePullPolicy: Always
           env:
             - name: REACT_APP_API_URL
