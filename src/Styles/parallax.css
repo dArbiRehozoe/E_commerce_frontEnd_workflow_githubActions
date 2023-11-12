@@ -1,0 +1,94 @@
+.Acceuil1{
+width: 80%;
+height: 200px;
+margin: 4%;
+margin-top: 4%;
+border: 1px solid rgb(255, 255, 255,0); /* Ajoute une bordure blanche aux images pour créer l'illusion de creux */
+border-radius: 10px; /* Ajoute un léger arrondi aux coins */
+box-shadow: 0px 0px 5px rgba(99, 74, 74, 0.4);
+}
+
+.Acceuil2{
+width:80%;
+height: 300px;
+margin: 4%;
+margin-left: 4%;
+border: 1px solid rgb(255, 255, 255,0); /* Ajoute une bordure blanche aux images pour créer l'illusion de creux */
+border-radius: 10px; /* Ajoute un léger arrondi aux coins */
+box-shadow: 0px 0px 5px rgba(99, 74, 74, 0.4);
+}
+.acceuilC{
+    display: flex;
+    background-color: red;
+}
+.Acceuil1 img{
+    border-radius: 10px; 
+}
+.Acceuil2 img{
+    border-radius: 10px; 
+}
+.test:hover{
+    color:black;
+
+}
+.test{color:red;}
+.Acceuil1:hover{
+    width: 150px;
+height: 150px;
+
+}
+
+.Acceuil2:hover{
+    width: 150px;
+height: 250px;
+
+}
+.text{
+    width: 90%;
+    color: gray;
+    margin-left: 5%;
+}
+.Titre{
+    width: 90%;
+  color: white;
+    font-size: 40px;
+    margin-left: 5%;
+}
+.gauche{
+ 
+    width: 50%;
+    padding-left: 2%;
+    padding-top: 10%;
+}
+.droite{
+    display: flex;
+    width: 50%;
+}
+.block{
+    display: flex;
+}
+@media only screen and (max-width: 600px) {
+    .block{
+        display: block;
+        margin-bottom: -5%;
+    }
+    .gauche{
+ 
+        width: 100%;
+        padding-left: 2%;
+     
+    }
+    .droite{
+        display: flex;
+        width: 100%;
+    }
+    .Acceuil1{
+        height: 150px;
+        }
+        
+        .Acceuil2{
+        height: 200px;
+      
+        }
+    }
+    

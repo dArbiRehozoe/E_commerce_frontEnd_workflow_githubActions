@@ -45,7 +45,7 @@ function Dashbord(){
 console.log(rowsqt)
 console.log(rowscorb)
     return(
-        <div>
+        <div >
                     <div className="dash">
          <div className="columndash" >
          <h5 className="widget-title" style={{textAlign:'center',textDecoration:'underline'}}>         

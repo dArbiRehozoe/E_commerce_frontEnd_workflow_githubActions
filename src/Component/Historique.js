@@ -86,7 +86,7 @@ function Historique() {
       <div style={{display:'flex'}}>
       
         <div>
-        <h4 className="titre" style={{marginTop:"5%",color:'#4d488c'}}>Liste des factures et Historiques de vos achats :</h4>
+        <h4 className="titre1" style={{marginTop:"5%",color:'#4d488c'}}>Liste des factures et Historiques de vos achats :</h4>
         <ul className="historique">
           
      { rows.reverse() }
