@@ -36,7 +36,7 @@ console.log(data)
   useEffect(() => {
         setTimeout(() => {
           setAlerteAffichee(true);
-        }, 5000); // 3000 millisecondes équivaut à 3 secondes
+        }, 1000); // 3000 millisecondes équivaut à 3 secondes
       
     
   }, []);
